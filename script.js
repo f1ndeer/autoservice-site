@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 👇 ВАЖЛИВО: Коли заллєте сервер на Render, вставте сюди отримане посилання.
     // Наприклад: const API_URL = 'https://my-autoservice.onrender.com';
     // Поки тестуєте на комп'ютері, залиште localhost.
-    const API_URL = 'http://localhost:3000'; 
+    const API_URL = 'https://autoservice-site.onrender.com/'; 
 
 
     // =========================================================================
