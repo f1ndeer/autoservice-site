@@ -998,7 +998,29 @@ h1, h2, h3, h4, h5, h6 {
     border-color: var(--primary);
     border-bottom-color: transparent;
 }
-
+.cookie-banner {
+    position: fixed;
+    bottom: 0;        /* Притискаємо до низу */
+    left: 0;
+    width: 100%;
+    top: auto;        /* Скасовуємо верхню позицію */
+    background-color: #212121; /* Темний фон */
+    color: #fff;
+    padding: 1rem 0;
+    z-index: 10000;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.3); /* Тінь вгору */
+    display: none;    /* JS керує відображенням */
+}
+.cookie-banner a { color: var(--primary-light); text-decoration: underline; }
+.cookie-banner .btn-ok { 
+    background: var(--primary); 
+    color: white; 
+    border-radius: 50px; 
+    padding: 0.5rem 1.5rem;
+    font-weight: bold;
+    border: none;
+}
+.cookie-banner .btn-ok:hover { background: var(--primary-dark); }
 .custom-options-list li {
     padding: 10px 15px;
     cursor: pointer;
