@@ -1141,43 +1141,47 @@ h1, h2, h3, h4, h5, h6 {
       /* --- ДОДАТКОВІ СТИЛІ (Кнопка + Cookies) --- */
 
         /* 1. Стилі для плаваючої кнопки дзвінка (ЗЛІВА) */
-.floating-call-btn {
-    position: fixed;
-    left: 20px;
-    bottom: 100px;
-    
-    /* Размер кнопки остался прежним (большим) */
-    width: 80px;
-    height: 80px;
+     .floating-call-btn {
+            position: fixed;
+            left: 20px; /* Розміщення зліва */
+            bottom: 100px; /* Трохи вище банера cookies */
+            width: 60px;
+            height: 60px;
+            background-color: #28a745; /* Основний зелений колір */
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.5);
+            z-index: 9998;
+            transition: all 0.3s ease;
+            animation: pulse-green 2s infinite; /* Анімація */
 
-    background-color: #28a745;
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.5);
-    z-index: 9998;
-    transition: all 0.3s ease;
-    animation: pulse-green 2s infinite;
+        }
+
+
+
+        .floating-call-btn:hover {
+            background-color: #1e7e34; /* Темніший зелений при наведенні */
+            transform: scale(1.1);
+            color: white;
+
+        }
+
+
+
+     .floating-call-btn svg {
+    width: 58px;
+    height: 58px;
+ 
+
 }
 
-.floating-call-btn:hover {
-    background-color: #1e7e34;
-    transform: scale(1.1);
-    color: white;
+.floating-call-btn:hover svg {
+    transform: scale(1.15);
 }
-
-.floating-call-btn svg {
-    /* --- ИЗМЕНЕНИЯ ЗДЕСЬ (Размер иконки увеличен) --- */
-    width: 65px;  /* Было 50px */
-    height: 65px; /* Было 50px */
-    /* ----------------------------------------------- */
-    
-    fill: white;
-}
-
         /* Анімація пульсації */
         @keyframes pulse-green {
             0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
