@@ -8,8 +8,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+   
+    </style>
 </head>
 <body>
+
+<a href="tel:+380123456789" class="floating-call-btn" title="Зателефонувати нам">
+    <i class="fas fa-phone"></i>
+</a>
+
+<div id="cookieBanner" class="cookie-banner">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+        <p class="mb-2 mb-md-0 text-center text-md-start font-size-sm">
+            Цей сайт використовує файли cookie для покращення користування. Детальніше у <a href="#">політиці конфіденційності</a>.
+        </p>
+        <button id="acceptCookie" class="btn btn-ok ms-md-3">OK</button>
+    </div>
+</div>
+
 <header class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a class="navbar-brand fw-bold" href="#home">
@@ -358,7 +376,7 @@
                             </div>
                         </div>
                     </div>
-                     <div class="accordion-item">
+                      <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFour">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                 Чи працюєте ви у вихідні?
@@ -421,7 +439,7 @@
             </div>
         </div>
         <div class="text-center mt-5">
-            <a href="#leave-review" class="btn btn-warning btn-lg px-5" data-bs-toggle="modal" data-bs-target="#reviewModal">Залишити відгук</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmi4beRmpd2Il6UC-nbO1Ujk4veCSqe_PMz_fo__ArIjuiKg/viewform?usp=dialog" class="btn btn-warning btn-lg px-5" >Залишити відгук</a>
         </div>
     </div>
 </section>
@@ -836,88 +854,39 @@
 
 <footer class="footer">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                <h5 class="text-accent">Зелене Світло</h5>
-                <p>Ваш надійний партнер у світі автосервісу в Миколаєві. Відновлюємо довіру до якості ремонту.</p>
-                <div class="social-links mt-4">
-                    <a href="#" aria-label="Facebook">
-                        <svg class="icon icon-facebook" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="Instagram">
-                        <svg class="icon icon-instagram" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12.017 0C8.396 0 7.996.014 6.79.067 5.584.12 4.775.302 4.082.559c-.726.275-1.34.64-1.95 1.25-.61.61-.975 1.224-1.25 1.95C.802 4.275.62 5.084.567 6.29.514 7.496.5 7.896.5 11.517c0 3.621.014 4.021.067 5.227.053 1.206.235 2.015.492 2.708.275.726.64 1.34 1.25 1.95.61.61 1.224.975 1.95 1.25.693.257 1.502.439 2.708.492 1.206.053 1.606.067 5.227.067 3.621 0 4.021-.014 5.227-.067 1.206-.053 2.015-.235 2.708-.492.726-.275 1.34-.64 1.95-1.25.61-.61.975-1.224 1.25-1.95.257-.693.439-1.502.492-2.708.053-1.206.067-1.606.067-5.227C12.104 7.896 12.09 7.496 12.037 6.29 12.484 5.084 12.302 4.275 12.045 3.582c-.275-.726-.64-1.34-1.25-1.95-.61-.61-1.224-.975-1.95-1.25C8.275.802 7.466.62 6.26.567 5.054.514 4.654.5.033.5-.588.5-.988.514-2.194.567-3.4.62-4.209.802-4.902 1.05c-.726.275-1.34.64-1.95 1.25-.61.61-.975 1.224-1.25 1.95C-7.302 4.275-7.484 5.084-7.537 6.29-7.59 7.496-7.604 7.896-7.604 11.517c0 3.621.014 4.021.067 5.227.053 1.206.235 2.015.492 2.708.275.726.64 1.34 1.25 1.95.61.61.975 1.224 1.25 1.95.693.257 1.502.439 2.708.492 1.206.053 1.606.067 5.227.067 3.621 0 4.021-.014 5.227-.067 1.206-.053 2.015-.235 2.708-.492.726-.275 1.34-.64 1.95-1.25.61-.61.975-1.224 1.25-1.95.257-.693.439-1.502.492-2.708.053-1.206.067-1.606.067-5.227C12.104 7.896 12.09 7.496 12.037 6.29 12.484 5.084 12.302 4.275 12.045 3.582c-.275-.726-.64-1.34-1.25-1.95-.61-.61-1.224-.975-1.95-1.25C9.725-.802 8.916-.984 7.71-1.037 6.504-1.09 6.104-1.104 2.483-1.104-.138-1.104-.538-1.09-1.744-1.037-2.95-1.09-3.759-.908-4.452-.656c-.726-.275-1.34-.64-1.95-1.25-.61-.61-.975-1.224-1.25-1.95C-7.802 3.725-7.984 2.916-8.037 1.71-8.09.504-8.104.104-8.104 3.725c0 3.621.014 4.021.067 5.227.053 1.206.235 2.015.492 2.708.275.726.64 1.34 1.25 1.95.61.61.975 1.224 1.25 1.95.693.257 1.502.439 2.708.492 1.206.053 1.606.067 5.227.067 3.621 0 4.021-.014 5.227-.067 1.206-.053 2.015-.235 2.708-.492.726-.275 1.34-.64 1.95-1.25.61-.61.975-1.224 1.25-1.95.257-.693.439-1.502.492-2.708.053-1.206.067-1.606.067-5.227C12.604 7.896 12.59 7.496 12.537 6.29 12.484 5.084 12.302 4.275 12.045 3.582c-.275-.726-.64-1.34-1.25-1.95-.61-.61-1.224-.975-1.95-1.25C10.725-.802 9.916-.984 8.71-1.037 7.504-1.09 7.104-1.104 3.483-1.104z"/>
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="Telegram">
-                        <svg class="icon icon-telegram" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="YouTube">
-                        <svg class="icon icon-youtube" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                        </svg>
-                    </a>
-                </div>
+        <div class="footer-content text-center">
+            
+            <div class="footer-item">
+                <a href="mailto:info@zelenesvitlo.mk.ua">
+                    <i class="fas fa-envelope me-2"></i>
+                    Пошта: <span class="text-white">info@zelenesvitlo.mk.ua</span>
+                </a>
             </div>
-            <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                <h5>Навігація</h5>
-                <ul class="list-unstyled footer-links">
-                    <li><a href="#home">Головна</a></li>
-                    <li><a href="#services">Послуги</a></li>
-                    <li><a href="#about">Про нас</a></li>
-                    <li><a href="#gallery">Галерея</a></li>
-                    <li><a href="#reviews">Відгуки</a></li>
-                    <li><a href="#vacancies">Вакансії</a></li>
-                    <li><a href="#contacts">Контакти</a></li>
-                </ul>
+
+            <div class="footer-item">
+                <a href="tel:+380123456789">
+                    <i class="fas fa-phone-alt me-2"></i>
+                    Телефон: <span class="text-accent">012 345 67 89</span>
+                </a>
             </div>
-            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                <h5>Популярні послуги</h5>
-                <ul class="list-unstyled footer-links">
-                    <li><a href="#21">Комп'ютерна діагностика</a></li>
-                    <li><a href="#22">Капітальний ремонт двигуна</a></li>
-                    <li><a href="#23">Ремонт КПП та трансмісії</a></li>
-                    <li><a href="#24">Заміна ременя ГРМ</a></li>
-                    <li><a href="#25">Шиномонтаж (сезонний)</a></li>
-                </ul>
+
+            <div class="footer-item">
+                <a href="#" target="_blank">
+                    <i class="fab fa-telegram-plane me-2"></i>
+                    Telegram: <span class="text-accent">@zelenesvitlo_bot</span>
+                </a>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <h5>Контакти</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2">
-                        <svg class="icon icon-map-marker me-2 text-accent" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
-                        м. Миколаїв, вул. Автосервісна, 25
-                    </li>
-                    <li class="mb-2">
-                        <svg class="icon icon-phone me-2 text-accent" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                        </svg>
-                        +38 (012) 345-67-89
-                    </li>
-                    <li class="mb-2">
-                        <svg class="icon icon-envelope me-2 text-accent" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                        </svg>
-                        info@zelenesvitlo.mk.ua
-                    </li>
-                    <li>
-                        <svg class="icon icon-clock me-2 text-accent" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
-                            <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-                        </svg>
-                        Пн-Пт
-                    </li>
-                </ul>
+
+            <div class="footer-item mt-3">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmi4beRmpd2Il6UC-nbO1Ujk4veCSqe_PMz_fo__ArIjuiKg/viewform?usp=dialog" >
+                    <i class="fas fa-pen me-2"></i>
+                    Маєш ідеї? <span class="text-underline">Залишити відгук</span>
+                </a>
             </div>
-        </div>
-        <div class="copyright">
-            <p class="mb-0 text-center">© 2025 Зелене Світло. Всі права захищені. Створено з любов'ю до автомобілів.</p>
+
+      
+
+            
         </div>
     </div>
 </footer>
@@ -940,34 +909,37 @@
                         <label for="orderPhone" class="form-label">Номер телефону *</label>
                         <input type="tel" class="form-control" id="orderPhone" required>
                     </div>
-                    <div class="mb-3">
-                        <label for="orderCar" class="form-label">Марка та модель авто</label>
-                        <input class="form-control" list="carOptions" id="orderCar" placeholder="Введіть або оберіть зі списку...">
-                        <datalist id="carOptions">
-                            <option value="Volkswagen">
-                            <option value="Skoda">
-                            <option value="Renault">
-                            <option value="Toyota">
-                            <option value="Hyundai">
-                            <option value="Kia">
-                            <option value="Nissan">
-                            <option value="Ford">
-                            <option value="BMW">
-                            <option value="Mercedes-Benz">
-                            <option value="Audi">
-                            <option value="Lexus">
-                            <option value="Mazda">
-                            <option value="Honda">
-                            <option value="Mitsubishi">
-                            <option value="Opel">
-                            <option value="Chevrolet">
-                            <option value="Peugeot">
-                            <option value="Subaru">
-                            <option value="Volvo">
-                            <option value="VAZ (Lada)">
-                            <option value="ZAZ">
-                        </datalist>
-                    </div>
+                 <div class="mb-3 position-relative" id="customCarSelectWrapper">
+    <label for="orderCar" class="form-label">Марка та модель авто</label>
+    
+    <input type="text" class="form-control" id="orderCar" placeholder="Введіть або оберіть зі списку..." autocomplete="off">
+    <span class="select-arrow"><i class="fas fa-chevron-down"></i></span>
+
+    <ul class="custom-options-list" id="carOptionsList">
+        <li data-value="Volkswagen">Volkswagen</li>
+        <li data-value="Skoda">Skoda</li>
+        <li data-value="Renault">Renault</li>
+        <li data-value="Toyota">Toyota</li>
+        <li data-value="Hyundai">Hyundai</li>
+        <li data-value="Kia">Kia</li>
+        <li data-value="Nissan">Nissan</li>
+        <li data-value="Ford">Ford</li>
+        <li data-value="BMW">BMW</li>
+        <li data-value="Mercedes-Benz">Mercedes-Benz</li>
+        <li data-value="Audi">Audi</li>
+        <li data-value="Lexus">Lexus</li>
+        <li data-value="Mazda">Mazda</li>
+        <li data-value="Honda">Honda</li>
+        <li data-value="Mitsubishi">Mitsubishi</li>
+        <li data-value="Opel">Opel</li>
+        <li data-value="Chevrolet">Chevrolet</li>
+        <li data-value="Peugeot">Peugeot</li>
+        <li data-value="Subaru">Subaru</li>
+        <li data-value="Volvo">Volvo</li>
+        <li data-value="VAZ (Lada)">VAZ (Lada)</li>
+        <li data-value="ZAZ">ZAZ</li>
+    </ul>
+</div>
                     <div class="mb-3">
                         <label for="orderMessage" class="form-label">Додаткова інформація</label>
                         <textarea class="form-control" id="orderMessage" rows="3"></textarea>
@@ -1032,19 +1004,29 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
 
-<!-- <script>
-    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            const navbarCollapse = document.getElementById('navMenu');
-            if (navbarCollapse.classList.contains('show')) {
-                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
-                if (bsCollapse) {
-                    bsCollapse.hide();
-                }
-            }
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cookieBanner = document.getElementById('cookieBanner');
+        const acceptCookieBtn = document.getElementById('acceptCookie');
+        const callBtn = document.querySelector('.floating-call-btn');
+
+        // Перевіряємо, чи вже погоджувався користувач
+        if (!localStorage.getItem('cookieAccepted')) {
+            cookieBanner.style.display = 'flex';
+        } else {
+            cookieBanner.style.display = 'none';
+            // Якщо банера немає, опускаємо кнопку дзвінка нижче
+            if(callBtn) callBtn.style.bottom = '20px';
+        }
+
+        acceptCookieBtn.addEventListener('click', function() {
+            cookieBanner.style.display = 'none';
+            localStorage.setItem('cookieAccepted', 'true');
+            // Опускаємо кнопку дзвінка вниз після закриття банера
+            if(callBtn) callBtn.style.bottom = '20px';
         });
     });
-</script> -->
+</script>
 
 </body>
 </html>

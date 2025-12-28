@@ -894,7 +894,140 @@ h1, h2, h3, h4, h5, h6 {
         transform: translateY(0);
     }
 }
+/* --- Новий Футер (Стиль як на картинці) --- */
+.footer {
+    background-color: #1b1f1c; /* Дуже темний зелений, майже чорний */
+    color: #b0b0b0;
+    padding: 3rem 0;
+    font-size: 1rem;
+    border-top: 4px solid var(--primary);
+}
 
+.footer-item {
+    margin-bottom: 0.8rem;
+}
+
+.footer-item a {
+    color: #e0e0e0;
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+}
+
+.footer-item a:hover {
+    color: white;
+}
+
+.footer-item i {
+    color: var(--light); /* Білі іконки */
+    width: 20px;
+    text-align: center;
+}
+
+.footer .text-accent {
+    color: var(--primary-light) !important; /* Помаранчевий для акцентів */
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.footer .text-white {
+    color: var(--primary-light) !important;
+    margin-left: 5px;
+}
+
+.footer .text-underline {
+    color: var(--primary-light); /* Червонуватий відтінок для "Залишити відгук" як на фото */
+    text-decoration: underline;
+    margin-left: 5px;
+}
+.footer .text-underline:hover {
+    text-decoration: none;
+    color: var(--primary-dark);
+}
+
+.copyright-links a {
+    color: #888;
+    font-size: 0.9rem;
+}
+.copyright-links a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+/* --- Кастомний Вибір Авто (Заміна стандартного datalist) --- */
+#customCarSelectWrapper .form-control {
+    background-color: #fff;
+    cursor: pointer;
+    padding-right: 40px; /* Місце для стрілочки */
+}
+
+.select-arrow {
+    position: absolute;
+    right: 15px;
+    top: 42px; /* Підлаштовано під висоту input */
+    pointer-events: none;
+    color: var(--primary);
+    font-size: 0.9rem;
+    transition: transform 0.3s;
+}
+
+#customCarSelectWrapper.active .select-arrow {
+    transform: rotate(180deg);
+}
+
+.custom-options-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 250px;
+    overflow-y: auto;
+    background: white;
+    border: 2px solid var(--primary);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    z-index: 1055; /* Вище ніж модальне вікно */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    margin-top: -2px; /* Щоб перекрити бордер інпута */
+}
+
+#customCarSelectWrapper.active .form-control {
+    border-radius: 12px 12px 0 0;
+    border-color: var(--primary);
+    border-bottom-color: transparent;
+}
+
+.custom-options-list li {
+    padding: 10px 15px;
+    cursor: pointer;
+    color: var(--dark);
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s;
+}
+
+.custom-options-list li:last-child {
+    border-bottom: none;
+}
+
+.custom-options-list li:hover {
+    background-color: var(--primary-extra-light); /* Світло-зелений при наведенні */
+    color: var(--primary-dark);
+    font-weight: 500;
+}
+
+/* Скролбар для списку */
+.custom-options-list::-webkit-scrollbar {
+    width: 8px;
+}
+.custom-options-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.custom-options-list::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+    border-radius: 4px;
+}
 /* =========================================
    АДАПТИВНІСТЬ (RESPONSIVE DESIGN)
    ========================================= */
@@ -983,7 +1116,86 @@ h1, h2, h3, h4, h5, h6 {
         text-align: center;
     }
 }
+      /* --- ДОДАТКОВІ СТИЛІ (Кнопка + Cookies) --- */
 
+        /* 1. Стилі для плаваючої кнопки дзвінка (ЗЛІВА) */
+        .floating-call-btn {
+            position: fixed;
+            left: 20px; /* Розміщення зліва */
+            bottom: 100px; /* Трохи вище банера cookies */
+            width: 60px;
+            height: 60px;
+            background-color: #28a745; /* Основний зелений колір */
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.5);
+            z-index: 9998;
+            transition: all 0.3s ease;
+            animation: pulse-green 2s infinite; /* Анімація */
+        }
+
+        .floating-call-btn:hover {
+            background-color: #1e7e34; /* Темніший зелений при наведенні */
+            transform: scale(1.1);
+            color: white;
+        }
+
+        .floating-call-btn svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+        }
+
+        /* Анімація пульсації */
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(40, 167, 69, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+        }
+
+        /* 2. Стилі для банера Cookies (ЗНИЗУ) */
+        .cookie-alert {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #155724; /* Темно-зелений фон */
+            color: #fff;
+            padding: 15px 0;
+            z-index: 9999;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+            display: none; /* Приховано за замовчуванням, JS покаже якщо треба */
+            border-top: 1px solid #28a745;
+        }
+
+        .cookie-alert a {
+            color: #85e0a3; /* Світло-зелене посилання */
+            text-decoration: underline;
+        }
+
+        .cookie-alert a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .btn-cookie-accept {
+            background-color: #28a745; /* Яскраво-зелена кнопка */
+            border: none;
+            color: white;
+            padding: 8px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-cookie-accept:hover {
+            background-color: #1e7e34;
+        }
 /* --- Мобільні телефони (ландшафт) та планшети (до 768px) --- */
 @media (max-width: 767.98px) {
     .container {

@@ -178,3 +178,62 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    document.addEventListener('DOMContentLoaded', function() {
+    
+    // ... ваш попередній код ...
+
+    // === ЛОГІКА КАСТОМНОГО ВИБОРУ АВТО ===
+    const carInput = document.getElementById('orderCar');
+    const carList = document.getElementById('carOptionsList');
+    const carWrapper = document.getElementById('customCarSelectWrapper');
+    const options = carList.querySelectorAll('li');
+
+    // 1. Відкриття списку при фокусі
+    carInput.addEventListener('focus', () => {
+        carList.style.display = 'block';
+        carWrapper.classList.add('active');
+    });
+
+    // 2. Фільтрація списку при введенні
+    carInput.addEventListener('input', function() {
+        const filter = this.value.toLowerCase();
+        let hasVisible = false;
+        
+        options.forEach(option => {
+            const text = option.textContent.toLowerCase();
+            if (text.includes(filter)) {
+                option.style.display = 'block';
+                hasVisible = true;
+            } else {
+                option.style.display = 'none';
+            }
+        });
+
+        // Якщо нічого не знайдено, можна показати/сховати список, 
+        // але тут лишаємо відкритим, щоб видно було порожнечу
+        carList.style.display = hasVisible ? 'block' : 'none';
+        
+        // Якщо поле пусте, показуємо все
+        if (this.value === '') {
+            options.forEach(o => o.style.display = 'block');
+            carList.style.display = 'block';
+        }
+    });
+
+    // 3. Вибір елемента зі списку
+    options.forEach(option => {
+        option.addEventListener('click', function() {
+            carInput.value = this.getAttribute('data-value');
+            carList.style.display = 'none';
+            carWrapper.classList.remove('active');
+        });
+    });
+
+    // 4. Закриття списку при кліку за межами
+    document.addEventListener('click', function(e) {
+        if (!carWrapper.contains(e.target)) {
+            carList.style.display = 'none';
+            carWrapper.classList.remove('active');
+        }
+    });
+});
