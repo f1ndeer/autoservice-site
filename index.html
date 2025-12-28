@@ -22,10 +22,8 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link active" href="#home">Головна</a></li>
                 <li class="nav-item"><a class="nav-link" href="#services">Послуги</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">Про нас</a></li>
-                <li class="nav-item"><a class="nav-link" href="#gallery">Галерея</a></li>
-                <li class="nav-item"><a class="nav-link" href="#reviews">Відгуки</a></li>
-                <li class="nav-item"><a class="nav-link" href="#vacancies">Вакансії</a></li>
+                <li class="nav-item"><a class="nav-link" href="#prices">Ціни</a></li> <li class="nav-item"><a class="nav-link" href="#gallery">Галерея</a></li>
+                <li class="nav-item"><a class="nav-link" href="#faq">Питання</a></li> <li class="nav-item"><a class="nav-link" href="#reviews">Відгуки</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contacts">Контакти</a></li>
             </ul>
             <button class="btn btn-accent ms-lg-3 mt-3 mt-lg-0" data-bs-toggle="modal" data-bs-target="#orderModal" data-service="Запис на сервіс">
@@ -67,10 +65,9 @@
             <div class="col-md-6 col-lg-3 mb-4">
                 <div class="feature-card">
                     <div class="feature-icon">
-        <svg class="icon icon-check" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
-</svg>
-
+                        <svg class="icon icon-check" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                        </svg>
                     </div>
                     <h4 class="fw-bold">Гарантія на роботи</h4>
                     <p class="text-muted">Надаємо офіційну гарантію на всі послуги та встановлені запчастини.</p>
@@ -237,7 +234,61 @@
     </div>
 </section>
 
-<section id="gallery" class="gallery-section section-padding">
+<section id="prices" class="section-padding bg-white">
+    <div class="container">
+        <h2 class="section-title">Орієнтовні ціни</h2>
+        <p class="text-center mb-5 text-muted">Вартість може змінюватися в залежності від марки авто та складності робіт.</p>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="table-responsive shadow-sm rounded">
+                    <table class="table table-hover mb-0">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col" class="py-3 px-4">Послуга</th>
+                                <th scope="col" class="py-3 px-4 text-end">Ціна (грн)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="px-4 py-3">Комп'ютерна діагностика</td>
+                                <td class="px-4 py-3 text-end fw-bold">від 300</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3">Діагностика ходової</td>
+                                <td class="px-4 py-3 text-end fw-bold">від 200</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3">Заміна масла та фільтрів (робота)</td>
+                                <td class="px-4 py-3 text-end fw-bold">від 250</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3">Заміна гальмівних колодок (вісь)</td>
+                                <td class="px-4 py-3 text-end fw-bold">від 400</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3">Заміна ременя ГРМ</td>
+                                <td class="px-4 py-3 text-end fw-bold">від 1500</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3">Обслуговування кондиціонера</td>
+                                <td class="px-4 py-3 text-end fw-bold">від 800</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3">Розвал-сходження</td>
+                                <td class="px-4 py-3 text-end fw-bold">від 450</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-center mt-4">
+                    <button class="btn btn-accent btn-lg" data-bs-toggle="modal" data-bs-target="#orderModal" data-service="Уточнення ціни">Уточнити вартість для мого авто</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="gallery" class="gallery-section section-padding bg-light">
     <div class="container">
         <h2 class="section-title">Галерея наших робіт</h2>
         <div class="row g-4 animate-fade-in">
@@ -265,7 +316,67 @@
     </div>
 </section>
 
-<section id="reviews" class="reviews-section section-padding">
+<section id="faq" class="section-padding bg-white">
+    <div class="container">
+        <h2 class="section-title">Часті питання</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Скільки часу займає діагностика?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Зазвичай комп'ютерна діагностика та огляд ходової займають від 30 до 60 хвилин. Ми цінуємо ваш час!
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Чи даєте ви гарантію на запчастини?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Так, ми надаємо гарантію як на виконані роботи, так і на запчастини, придбані та встановлені у нас.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Чи можна бути присутнім при ремонті?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                З метою безпеки ми рекомендуємо очікувати в нашій комфортній зоні відпочинку, але за бажанням ви можете оглянути авто разом з майстром.
+                            </div>
+                        </div>
+                    </div>
+                     <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Чи працюєте ви у вихідні?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Ми працюємо з понеділка по суботу. Неділя - вихідний день. У суботу скорочений графік до 16:00.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="reviews" class="reviews-section section-padding bg-light">
     <div class="container">
         <h2 class="section-title">Відгуки наших клієнтів</h2>
         <div class="row animate-fade-in">
@@ -358,10 +469,10 @@
     <div class="container">
         <h2 class="section-title">Вакансії</h2>
         <p class="section-subtitle text-center mb-5">Приєднуйтесь до нашої команди професіоналів</p>
-         
+          
         <div class="row justify-content-center animate-fade-in">
             <div class="col-lg-10 col-xl-9">
-                 
+                  
                 <div class="vacancy-item mb-5">
                     <div class="row align-items-center g-4">
                         <div class="col-md-8">
@@ -383,7 +494,7 @@
                                 Шукаємо досвідченого автомеханіка для роботи з європейськими та азіатськими автомобілями. 
                                 Стабільна робота в дружньому колективі, можливість професійного розвитку.
                             </p>
-                             
+                              
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <h6 class="vacancy-subtitle">Вимоги:</h6>
@@ -467,7 +578,7 @@
                                 Нам потрібен спеціаліст з комп'ютерної діагностики автомобілів. 
                                 Робота на сучасному обладнанні, постійне оновлення знань.
                             </p>
-                             
+                              
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <h6 class="vacancy-subtitle">Вимоги:</h6>
@@ -553,7 +664,7 @@
                                 Шукаємо комунікабельну людину для роботи з клієнтами та ведення обліку. 
                                 Ідеальна робота для організованих та ввічливих людей.
                             </p>
-                             
+                              
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <h6 class="vacancy-subtitle">Вимоги:</h6>
@@ -779,7 +890,7 @@
                 <ul class="list-unstyled">
                     <li class="mb-2">
                         <svg class="icon icon-map-marker me-2 text-accent" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5-2.5 1.12 2.5-2.5 2.5z"/>
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                         </svg>
                         м. Миколаїв, вул. Автосервісна, 25
                     </li>
@@ -831,7 +942,31 @@
                     </div>
                     <div class="mb-3">
                         <label for="orderCar" class="form-label">Марка та модель авто</label>
-                        <input type="text" class="form-control" id="orderCar">
+                        <input class="form-control" list="carOptions" id="orderCar" placeholder="Введіть або оберіть зі списку...">
+                        <datalist id="carOptions">
+                            <option value="Volkswagen">
+                            <option value="Skoda">
+                            <option value="Renault">
+                            <option value="Toyota">
+                            <option value="Hyundai">
+                            <option value="Kia">
+                            <option value="Nissan">
+                            <option value="Ford">
+                            <option value="BMW">
+                            <option value="Mercedes-Benz">
+                            <option value="Audi">
+                            <option value="Lexus">
+                            <option value="Mazda">
+                            <option value="Honda">
+                            <option value="Mitsubishi">
+                            <option value="Opel">
+                            <option value="Chevrolet">
+                            <option value="Peugeot">
+                            <option value="Subaru">
+                            <option value="Volvo">
+                            <option value="VAZ (Lada)">
+                            <option value="ZAZ">
+                        </datalist>
                     </div>
                     <div class="mb-3">
                         <label for="orderMessage" class="form-label">Додаткова інформація</label>
@@ -870,8 +1005,15 @@
                         <input type="email" class="form-control" id="vacancyEmail">
                     </div>
                     <div class="mb-3">
-                        <label for="vacancyExperience" class="form-label">Досвід роботи (років)</label>
-                        <input type="number" class="form-control" id="vacancyExperience" min="0">
+                        <label for="vacancyExperience" class="form-label">Досвід роботи</label>
+                        <select class="form-select" id="vacancyExperience">
+                            <option value="" selected disabled>Оберіть ваш досвід...</option>
+                            <option value="Без досвіду">Без досвіду</option>
+                            <option value="Менше 1 року">Менше 1 року</option>
+                            <option value="1-3 роки">1-3 роки</option>
+                            <option value="3-5 років">3-5 років</option>
+                            <option value="Понад 5 років">Понад 5 років</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="vacancyMessage" class="form-label">Додаткова інформація</label>
@@ -889,5 +1031,20 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
+
+<!-- <script>
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            const navbarCollapse = document.getElementById('navMenu');
+            if (navbarCollapse.classList.contains('show')) {
+                const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                if (bsCollapse) {
+                    bsCollapse.hide();
+                }
+            }
+        });
+    });
+</script> -->
+
 </body>
 </html>
