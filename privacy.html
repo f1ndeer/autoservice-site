@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Політика конфіденційності - Зелене Світло</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           ОСНОВНІ СТИЛІ (Ті самі, що і на головній)
+           ========================================= */
+        :root {
+            --primary-dark: #1b5e20;
+            --primary: #2e7d32;
+            --primary-light: #4caf50;
+            --dark: #1d1d1f;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.5);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+            --blur: saturate(180%) blur(20px);
+            --radius-card: 24px;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #fbfbfd;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(76, 175, 80, 0.08) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(255, 152, 0, 0.05) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--dark);
+            padding-top: 80px;
+        }
+
+        /* Хедер */
+        .navbar {
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Кнопка Назад */
+        .btn-back {
+            display: inline-flex; align-items: center; text-decoration: none;
+            color: var(--primary-dark); font-weight: 600; font-size: 0.95rem;
+            padding: 0.5rem 1rem; border-radius: 50px;
+            background: rgba(255,255,255,0.5); margin-right: 15px;
+            transition: 0.3s;
+        }
+        .btn-back:hover { background: var(--primary-light); color: white; }
+        .btn-back svg { width: 20px; height: 20px; margin-right: 6px; fill: currentColor; }
+
+        /* Контент політики (Скляна картка) */
+        .policy-container {
+            background: var(--glass-bg);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            border: var(--glass-border);
+            border-radius: var(--radius-card);
+            box-shadow: var(--glass-shadow);
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        h1 { color: var(--primary-dark); font-weight: 800; margin-bottom: 1.5rem; }
+        h2 { color: var(--primary); font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; }
+        p, li { color: #555; line-height: 1.7; margin-bottom: 1rem; }
+        ul { padding-left: 20px; margin-bottom: 1rem; }
+        li { margin-bottom: 0.5rem; }
+
+        @media (max-width: 768px) {
+            .policy-container { padding: 1.5rem; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar navbar-expand-lg fixed-top">
+        <div class="container d-flex align-items-center">
+            <a href="index.html" class="btn-back">
+                <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                На головну
+            </a>
+            <span class="navbar-brand fw-bold text-success">Зелене Світло</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="policy-container animate-fade-in">
+                    <h1>Політика конфіденційності</h1>
+                    <p class="lead">Останнє оновлення: 29 жовтня 2023</p>
+
+                    <h2>1. Загальні положення</h2>
+                    <p>Ця Політика конфіденційності описує, як компанія "Зелене Світло" (далі - "Ми") збирає, використовує та захищає вашу особисту інформацію при використанні нашого веб-сайту.</p>
+
+                    <h2>2. Збір інформації</h2>
+                    <p>Ми можемо збирати наступні дані:</p>
+                    <ul>
+                        <li>Ім'я та прізвище (при заповненні форм зворотного зв'язку).</li>
+                        <li>Контактна інформація (телефон, електронна пошта).</li>
+                        <li>Інформація про ваш автомобіль (марка, модель - для запису на сервіс).</li>
+                        <li>Технічні дані (IP-адреса, тип браузера, файли cookie).</li>
+                    </ul>
+
+                    <h2>3. Використання файлів Cookie</h2>
+                    <p>Наш сайт використовує файли cookie для покращення вашого користувацького досвіду. Cookie — це невеликі текстові файли, які зберігаються на вашому пристрої.</p>
+                    <p>Ми використовуємо їх для:</p>
+                    <ul>
+                        <li>Збереження ваших налаштувань.</li>
+                        <li>Аналізу відвідуваності сайту.</li>
+                        <li>Забезпечення коректної роботи форм запису.</li>
+                    </ul>
+                    <p>Ви можете вимкнути файли cookie у налаштуваннях вашого браузера, проте це може вплинути на роботу деяких функцій сайту.</p>
+
+                    <h2>4. Захист даних</h2>
+                    <p>Ми вживаємо всіх необхідних технічних та організаційних заходів для захисту ваших персональних даних від несанкціонованого доступу, зміни або знищення. Ваші дані не передаються третім особам, окрім випадків, передбачених законодавством.</p>
+
+                    <h2>5. Контакти</h2>
+                    <p>Якщо у вас виникли запитання щодо цієї політики, будь ласка, зв'яжіться з нами:</p>
+                    <p><strong>Email:</strong> info@greenlight.ua<br>
+                    <strong>Телефон:</strong> +38 (012) 345-67-89</p>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptBtn = document.getElementById('acceptCookie');
+
+    // Перевіряємо, чи користувач вже погодився раніше
+    if (!localStorage.getItem('cookiesAccepted')) {
+        // Якщо ні, показуємо банер (додаємо стиль display: block в CSS або через JS)
+        cookieBanner.style.display = 'block';
+        
+        // Додаємо невелику затримку для анімації появи (якщо є CSS анімація)
+        setTimeout(() => {
+            cookieBanner.classList.add('show');
+        }, 100);
+    }
+
+    // Обробка кліку на кнопку OK
+    acceptBtn.addEventListener('click', function() {
+        // Запам'ятовуємо вибір у браузері
+        localStorage.setItem('cookiesAccepted', 'true');
+        
+        // Приховуємо банер
+        cookieBanner.style.display = 'none';
+    });
+});
+</script>
+</body>
+</html>
