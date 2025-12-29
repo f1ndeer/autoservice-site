@@ -237,24 +237,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-    document.addEventListener('DOMContentLoaded', function() {
-        const cookieBanner = document.getElementById('cookieBanner');
-        const acceptCookieBtn = document.getElementById('acceptCookie');
-        const callBtn = document.querySelector('.floating-call-btn');
-
-        // Перевіряємо, чи вже погоджувався користувач
-        if (!localStorage.getItem('cookieAccepted')) {
-            cookieBanner.style.display = 'flex';
-        } else {
-            cookieBanner.style.display = 'none';
-            // Якщо банера немає, опускаємо кнопку дзвінка нижче
-            if(callBtn) callBtn.style.bottom = '20px';
-        }
-
-        acceptCookieBtn.addEventListener('click', function() {
-            cookieBanner.style.display = 'none';
-            localStorage.setItem('cookieAccepted', 'true');
-            // Опускаємо кнопку дзвінка вниз після закриття банера
-            if(callBtn) callBtn.style.bottom = '20px';
-        });
-    });
