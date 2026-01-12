@@ -1,8 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // --- 1. Логіка для модального вікна ЗАМОВЛЕННЯ ---
+    // --- ВАША ПОЧТА (куда будут приходить письма) ---
+    const TARGET_EMAIL = "deniskibzun@gmail.com"; 
+
+    // ============================================================
+    // 1. ЛОГИКА ОТПРАВКИ (С модалки -> В почтовый клиент)
+    // ============================================================
+
+    // --- А. ЗАКАЗ УСЛУГИ (Order Modal) ---
     
-    // Передача назви послуги в модальне вікно при відкритті
+    // 1. Передача названия услуги в заголовок модалки при клике
     const orderModal = document.getElementById('orderModal');
     if (orderModal) {
         orderModal.addEventListener('show.bs.modal', function (event) {
@@ -13,45 +20,52 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (serviceName) {
                 modalInput.value = serviceName;
-                modalTitle.textContent = 'Замовити: ' + serviceName;
+                modalTitle.textContent = 'Заказать: ' + serviceName;
             }
         });
     }
 
-    // Обробка кнопки "Замовити"
+    // 2. Сбор данных и перенаправление на почту
     const submitOrderBtn = document.getElementById('submitOrder');
     if (submitOrderBtn) {
-        submitOrderBtn.addEventListener('click', function() {
+        submitOrderBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Берем текст из полей
             const name = document.getElementById('orderName').value;
             const phone = document.getElementById('orderPhone').value;
             const car = document.getElementById('orderCar').value;
             const message = document.getElementById('orderMessage').value;
-            const service = document.getElementById('selectedService').value;
+            const service = document.getElementById('selectedService').value || 'Общий запрос';
 
+            // Проверка
             if (!name || !phone) {
-                alert("Будь ласка, вкажіть ім'я та телефон");
+                alert("Пожалуйста, укажите имя и телефон");
                 return;
             }
 
-            const subject = encodeURIComponent("Замовлення послуги: " + service);
+            // Формируем тему и текст письма
+            const subject = encodeURIComponent("Заказ услуги: " + service);
             const body = encodeURIComponent(
-                `Ім'я: ${name}\nТелефон: ${phone}\nАвто: ${car}\nПослуга: ${service}\nКоментар: ${message}`
+                `Имя: ${name}\n` +
+                `Телефон: ${phone}\n` +
+                `Автомобиль: ${car}\n` +
+                `Услуга: ${service}\n` +
+                `Комментарий: ${message}`
             );
 
-            // Відправка листа
-            window.location.href = `mailto:deniskibzun@gmail.com?subject=${subject}&body=${body}`;
+            // ОТКРЫВАЕМ ПОЧТУ С УЖЕ ЗАПОЛНЕННЫМ ТЕКСТОМ
+            window.location.href = `mailto:${TARGET_EMAIL}?subject=${subject}&body=${body}`;
 
-            // Закриття модального вікна (Bootstrap спосіб)
+            // Закрываем окно и чистим форму
             const modalInstance = bootstrap.Modal.getInstance(orderModal);
             modalInstance.hide();
-            
-            // Очищення форми
             document.getElementById('orderForm').reset();
         });
     }
 
 
-    // --- 2. Логіка для модального вікна ВАКАНСІЙ ---
+    // --- Б. ВАКАНСИИ (Vacancy Modal) ---
 
     const vacancyModal = document.getElementById('vacancyModal');
     if (vacancyModal) {
@@ -63,14 +77,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (vacancyName) {
                 modalInput.value = vacancyName;
-                modalTitle.textContent = 'Резюме на посаду: ' + vacancyName;
+                modalTitle.textContent = 'Резюме на: ' + vacancyName;
             }
         });
     }
 
     const submitVacancyBtn = document.getElementById('submitVacancy');
     if (submitVacancyBtn) {
-        submitVacancyBtn.addEventListener('click', function() {
+        submitVacancyBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Берем текст из полей
             const name = document.getElementById('vacancyName').value;
             const phone = document.getElementById('vacancyPhone').value;
             const email = document.getElementById('vacancyEmail').value;
@@ -79,16 +96,23 @@ document.addEventListener('DOMContentLoaded', function() {
             const vacancy = document.getElementById('selectedVacancy').value;
 
             if (!name || !phone) {
-                alert("Будь ласка, вкажіть ім'я та телефон");
+                alert("Пожалуйста, укажите имя и телефон");
                 return;
             }
 
+            // Формируем письмо
             const subject = encodeURIComponent("Резюме: " + vacancy);
             const body = encodeURIComponent(
-                `Ім'я: ${name}\nТелефон: ${phone}\nEmail: ${email}\nДосвід: ${exp} років\nВакансія: ${vacancy}\nПро себе: ${message}`
+                `Имя: ${name}\n` +
+                `Телефон: ${phone}\n` +
+                `Email: ${email}\n` +
+                `Опыт работы: ${exp}\n` +
+                `Вакансия: ${vacancy}\n` +
+                `О себе: ${message}`
             );
 
-            window.location.href = `mailto:deniskibzun@gmail.com?subject=${subject}&body=${body}`;
+            // Перенаправляем
+            window.location.href = `mailto:${TARGET_EMAIL}?subject=${subject}&body=${body}`;
 
             const modalInstance = bootstrap.Modal.getInstance(vacancyModal);
             modalInstance.hide();
@@ -97,12 +121,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    // --- 3. Логіка для ФОРМИ КОНТАКТІВ (внизу сторінки) ---
+    // --- В. ФОРМА КОНТАКТОВ (Внизу сайта) ---
 
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Зупиняємо стандартну відправку форми
+            e.preventDefault();
 
             const name = document.getElementById('contactName').value;
             const phone = document.getElementById('contactPhone').value;
@@ -110,40 +134,45 @@ document.addEventListener('DOMContentLoaded', function() {
             const service = document.getElementById('contactService').value;
             const message = document.getElementById('contactMessage').value;
 
-            const subject = encodeURIComponent("Заявка з сайту: " + service);
+            const subject = encodeURIComponent("Быстрая заявка с сайта");
             const body = encodeURIComponent(
-                `Ім'я: ${name}\nТелефон: ${phone}\nEmail: ${email}\nТип послуги: ${service}\nПовідомлення: ${message}`
+                `Имя: ${name}\n` +
+                `Телефон: ${phone}\n` +
+                `Email: ${email}\n` +
+                `Тип услуги: ${service}\n` +
+                `Сообщение: ${message}`
             );
 
-            window.location.href = `mailto:deniskibzun@gmail.com?subject=${subject}&body=${body}`;
+            window.location.href = `mailto:${TARGET_EMAIL}?subject=${subject}&body=${body}`;
             contactForm.reset();
         });
     }
 
 
-    // --- 4. Логіка для ВІДГУКІВ ---
-    
-    // Обробка зірочок
+    // --- Г. ОТЗЫВЫ (Review Modal) ---
+
+    // Логика звездочек
     const stars = document.querySelectorAll('.star-rating-form .star');
     const ratingInput = document.getElementById('reviewRating');
     
-    stars.forEach(star => {
-        star.addEventListener('click', function() {
-            const value = this.getAttribute('data-value');
-            ratingInput.value = value;
-            
-            // Фарбуємо зірки
-            stars.forEach(s => {
-                if(s.getAttribute('data-value') <= value) {
-                    s.setAttribute('fill', 'gold'); // Або ваш колір #ffc107
-                    s.style.color = '#ffc107'; 
-                } else {
-                    s.setAttribute('fill', 'gray');
-                    s.style.color = 'gray';
-                }
+    if (stars.length > 0) {
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const value = this.getAttribute('data-value');
+                ratingInput.value = value;
+                
+                stars.forEach(s => {
+                    if(s.getAttribute('data-value') <= value) {
+                        s.setAttribute('fill', '#ffc107'); 
+                        s.style.color = '#ffc107'; 
+                    } else {
+                        s.setAttribute('fill', 'gray');
+                        s.style.color = 'gray';
+                    }
+                });
             });
         });
-    });
+    }
 
     const reviewForm = document.getElementById('reviewForm');
     if (reviewForm) {
@@ -153,24 +182,127 @@ document.addEventListener('DOMContentLoaded', function() {
             const name = document.getElementById('reviewName').value;
             const text = document.getElementById('reviewText').value;
             const rating = document.getElementById('reviewRating').value;
+            const email = document.getElementById('reviewEmail').value;
 
-            const subject = encodeURIComponent("Новий відгук з сайту");
+            const subject = encodeURIComponent("Новый отзыв с сайта");
             const body = encodeURIComponent(
-                `Ім'я: ${name}\nОцінка: ${rating}/5\nВідгук: ${text}`
+                `Имя: ${name}\n` +
+                `Email: ${email}\n` +
+                `Оценка: ${rating}/5\n` +
+                `Отзыв: ${text}`
             );
 
-            window.location.href = `mailto:deniskibzun@gmail.com?subject=${subject}&body=${body}`;
+            window.location.href = `mailto:${TARGET_EMAIL}?subject=${subject}&body=${body}`;
 
             const modalInstance = bootstrap.Modal.getInstance(document.getElementById('reviewModal'));
             modalInstance.hide();
             reviewForm.reset();
         });
     }
-});
-    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+
+
+    // ============================================================
+    // 2. ИНТЕРФЕЙС (UI) - Выпадающие списки, FAQ, Cookie
+    // ============================================================
+
+    // --- Кастомный выбор авто ---
+    const carInput = document.getElementById('orderCar');
+    const carList = document.getElementById('carOptionsList');
+    const carWrapper = document.getElementById('customCarSelectWrapper');
+    
+    if (carInput && carList && carWrapper) {
+        const options = carList.querySelectorAll('li');
+
+        carInput.addEventListener('focus', () => {
+            carList.style.display = 'block';
+            carWrapper.classList.add('active');
+        });
+
+        carInput.addEventListener('input', function() {
+            const filter = this.value.toLowerCase();
+            let hasVisible = false;
+            
+            options.forEach(option => {
+                const text = option.textContent.toLowerCase();
+                if (text.includes(filter)) {
+                    option.style.display = 'block';
+                    hasVisible = true;
+                } else {
+                    option.style.display = 'none';
+                }
+            });
+            carList.style.display = hasVisible || this.value === '' ? 'block' : 'none';
+        });
+
+        options.forEach(option => {
+            option.addEventListener('click', function() {
+                carInput.value = this.getAttribute('data-value');
+                carList.style.display = 'none';
+                carWrapper.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!carWrapper.contains(e.target)) {
+                carList.style.display = 'none';
+                carWrapper.classList.remove('active');
+            }
+        });
+    }
+
+    // --- Аккордеон FAQ ---
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const trigger = item.querySelector('.faq-trigger');
+        if (trigger) {
+            trigger.addEventListener('click', () => {
+                const isOpen = item.classList.contains('active');
+                faqItems.forEach(otherItem => {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+                    const content = otherItem.querySelector('.faq-content');
+                    if(content) content.style.maxHeight = null;
+                });
+
+                if (!isOpen) {
+                    item.classList.add('active');
+                    trigger.setAttribute('aria-expanded', 'true');
+                    const content = item.querySelector('.faq-content');
+                    if(content) content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+    });
+
+    // --- Cookie Banner ---
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptCookieBtn = document.getElementById('acceptCookie');
+    const callBtn = document.querySelector('.floating-call-btn');
+
+    if (cookieBanner) {
+        if (!localStorage.getItem('cookieAccepted')) {
+            cookieBanner.style.display = 'flex';
+        } else {
+            cookieBanner.style.display = 'none';
+            if(callBtn) callBtn.style.bottom = '20px';
+        }
+
+        if (acceptCookieBtn) {
+            acceptCookieBtn.addEventListener('click', function() {
+                cookieBanner.style.display = 'none';
+                localStorage.setItem('cookieAccepted', 'true');
+                if(callBtn) callBtn.style.bottom = '20px';
+            });
+        }
+    }
+
+    // --- Закрытие мобильного меню ---
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    const navbarCollapse = document.getElementById('navMenu');
+    
+    navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            const navbarCollapse = document.getElementById('navMenu');
-            if (navbarCollapse.classList.contains('show')) {
+            if (navbarCollapse && navbarCollapse.classList.contains('show')) {
                 const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
                 if (bsCollapse) {
                     bsCollapse.hide();
@@ -178,62 +310,5 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    document.addEventListener('DOMContentLoaded', function() {
-    
-    // ... ваш попередній код ...
 
-    // === ЛОГІКА КАСТОМНОГО ВИБОРУ АВТО ===
-    const carInput = document.getElementById('orderCar');
-    const carList = document.getElementById('carOptionsList');
-    const carWrapper = document.getElementById('customCarSelectWrapper');
-    const options = carList.querySelectorAll('li');
-
-    // 1. Відкриття списку при фокусі
-    carInput.addEventListener('focus', () => {
-        carList.style.display = 'block';
-        carWrapper.classList.add('active');
-    });
-
-    // 2. Фільтрація списку при введенні
-    carInput.addEventListener('input', function() {
-        const filter = this.value.toLowerCase();
-        let hasVisible = false;
-        
-        options.forEach(option => {
-            const text = option.textContent.toLowerCase();
-            if (text.includes(filter)) {
-                option.style.display = 'block';
-                hasVisible = true;
-            } else {
-                option.style.display = 'none';
-            }
-        });
-
-        // Якщо нічого не знайдено, можна показати/сховати список, 
-        // але тут лишаємо відкритим, щоб видно було порожнечу
-        carList.style.display = hasVisible ? 'block' : 'none';
-        
-        // Якщо поле пусте, показуємо все
-        if (this.value === '') {
-            options.forEach(o => o.style.display = 'block');
-            carList.style.display = 'block';
-        }
-    });
-
-    // 3. Вибір елемента зі списку
-    options.forEach(option => {
-        option.addEventListener('click', function() {
-            carInput.value = this.getAttribute('data-value');
-            carList.style.display = 'none';
-            carWrapper.classList.remove('active');
-        });
-    });
-
-    // 4. Закриття списку при кліку за межами
-    document.addEventListener('click', function(e) {
-        if (!carWrapper.contains(e.target)) {
-            carList.style.display = 'none';
-            carWrapper.classList.remove('active');
-        }
-    });
 });

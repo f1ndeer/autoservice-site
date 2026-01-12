@@ -5,6 +5,30 @@
   box-sizing: border-box;
 }
 
+/* --- СКИДАННЯ ВИДІЛЕННЯ (OUTLINE/HIGHLIGHT) --- */
+/* Прибирає синє/сіре виділення при натисканні на мобільних */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Прибирає рамку (outline) при фокусі на елементах */
+*:focus {
+    outline: none !important;
+}
+
+/* Спеціально для посилань: прибираємо підкреслення та обведення */
+a, a:visited, a:hover, a:active, a:focus {
+    text-decoration: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Прибирає стандартну тінь фокусу Bootstrap або браузера для кнопок */
+button:focus, .btn:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 body, h1, h2, h3, h4, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
   margin: 0;
 }
@@ -167,7 +191,7 @@ h1, h2, h3, h4, h5, h6 {
     border-color: var(--accent);
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.2);
+
 }
 
 .btn-outline-light {
@@ -181,9 +205,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-warning {
-    background-color: var(--accent);
+    background-color: var(--primary);
     color: white;
-    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+
 }
 .btn-warning:hover {
     background-color: var(--accent-light);
@@ -203,13 +227,12 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
     transition: var(--transition);
     margin-top: 1rem;
-    box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
 }
 .btn-landing:hover {
     background-color: var(--primary-dark);
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(46, 125, 50, 0.4);
+
 }
 
 /* --- Хедер --- */
@@ -230,6 +253,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-toggler:focus {
     box-shadow: 0 0 0 2px rgba(255,152,0,0.5);
     background: rgba(255,255,255,0.2);
+    outline: none; /* Додатково прибрано тут */
 }
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
@@ -256,6 +280,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     letter-spacing: 0.5px;
+    text-decoration: none; /* Заборона підкреслення */
 }
 .navbar-brand::before {
     content: '';
@@ -275,6 +300,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: var(--transition);
     position: relative;
     font-size: 0.95rem;
+    text-decoration: none; /* Заборона підкреслення */
 }
 .nav-link::after {
     display: none;
@@ -283,6 +309,65 @@ h1, h2, h3, h4, h5, h6 {
 .nav-link.active {
     color: white !important;
     text-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+/* Робимо текст читабельним */
+.about-description {
+    max-width: 800px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Стилізація списку у вигляді сітки */
+.about-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    .about-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .about-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.feature-box {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e9ecef;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: var(--accent-color, #ffc107);
+}
+
+.feature-box i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #28a745;
+}
+
+.feature-box span {
+    font-weight: 500;
+    color: #333;
 }
 
 /* --- Герой секція --- */
@@ -381,14 +466,6 @@ h1, h2, h3, h4, h5, h6 {
 .about-list li {
     padding: 0.6rem 0;
     font-size: 1.05rem;
-    border-bottom: 1px solid #eee;
-}
-.about-list li:last-child {
-    border-bottom: none;
-}
-.about-list svg {
-    color: var(--primary);
-    margin-right: 12px;
 }
 
 /* --- Послуги --- */
@@ -462,6 +539,7 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     height: 240px;
 }
+
 .gallery-item img {
     width: 100%;
     height: 100%;
@@ -527,153 +605,157 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.2) rotate(10deg);
 }
 
-/* --- Вакансії --- */
-.vacancies-section {
-    background-color: white;
-}
-.vacancy-item {
-    background-color: #fff;
-    padding: 0;
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow);
+/* --- Нові Стилі Вакансій --- */
+
+/* Контейнер картки */
+.vacancy-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
     border: 1px solid rgba(0,0,0,0.05);
     overflow: hidden;
-    display: flex; 
-    flex-direction: column;
-}
-.vacancy-item > .row {
-    margin: 0;
-    flex-grow: 1;
-    display: flex;
-}
-.vacancy-item .col-md-8 {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.vacancy-item .col-md-4 {
-    padding: 0;
-    display: flex;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.vacancy-header {
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 1rem;
-    display: flex;
-    align-items: center;
+.vacancy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(46, 125, 50, 0.1);
 }
-.vacancy-icon {
-    width: 50px;
-    height: 50px;
-    background: rgba(76, 175, 80, 0.1);
-    border-radius: 50%;
+
+/* Тіло вакансії (ліва частина) */
+.vacancy-body {
+    padding: 2rem;
+}
+
+/* Іконка професії */
+.vacancy-icon-box {
+    width: 56px;
+    height: 56px;
+    background: rgba(46, 125, 50, 0.1); /* Світло-зелений фон */
+    color: var(--primary);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 1.2rem;
-    flex-shrink: 0;
 }
-.vacancy-icon svg {
-    width: 24px;
-    height: 24px;
-    color: var(--primary);
+.vacancy-icon-box svg {
+    width: 28px;
+    height: 28px;
 }
+
+/* Заголовок і теги */
 .vacancy-title {
-    color: var(--primary-dark);
-    font-size: 1.35rem;
-    margin-bottom: 0.2rem;
-    text-align: center;
-}
-.vacancy-badges .badge {
-    font-weight: 500;
-    padding: 0.5em 0.8em;
-    border-radius: 30px;
-    font-size: 0.8rem;
-}
-.vacancy-subtitle {
-    color: var(--primary-dark);
+    margin: 0;
+    font-size: 1.4rem;
     font-weight: 700;
-    margin-top: 0.8rem;
-    font-size: 1rem;
+    color: var(--primary-dark);
 }
-.vacancy-list li {
-    padding: 0.3rem 0;
+
+.vacancy-tags {
+    margin-top: 6px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.v-tag {
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.v-tag-blue {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+.v-tag-green {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    font-weight: 700;
+}
+
+.vacancy-desc {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+/* Списки */
+.list-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.styled-list {
+    list-style: none;
+    padding: 0;
+}
+
+.styled-list li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
     color: #555;
     display: flex;
     align-items: flex-start;
-    font-size: 0.95rem;
 }
-.vacancy-list svg {
-    color: var(--primary);
+
+.styled-list li i {
     margin-right: 10px;
     margin-top: 4px;
-    flex-shrink: 0;
-    width: 18px;
-    height: 18px;
-}
-
-.vacancy-apply-card {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    padding: 2rem 1.5rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    height: 100%;
-}
-
-.vacancy-apply-content-wrapper {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 1rem;
-}
-
-.vacancy-apply-icon svg {
-    width: 54px;
-    height: 54px;
-    color: rgba(255,255,255,0.9);
-    margin-bottom: 0.8rem;
-}
-
-.vacancy-contact-info {
-    margin-top: 1rem;
     font-size: 0.9rem;
 }
-.vacancy-contact-info svg {
-    margin-right: 5px;
-    vertical-align: middle;
+
+/* Колір іконок у списках */
+.styled-list li .fa-check-circle { color: var(--primary); }
+.styled-list li .fa-star { color: #ff9800; }
+
+/* Права колонка (Дія) */
+.vacancy-action {
+    background-color: #fcfdfc; /* Дуже світлий фон */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-left: 1px solid #f0f0f0;
 }
 
-.vacancy-divider {
-    position: relative;
-    text-align: center;
-    margin: 3rem 0;
+.icon-big {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
 }
-.divider-line {
-    height: 2px;
-    background-color: #f0f0f0;
+
+.phone-link {
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
-.divider-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 0 1rem;
+
+/* Кордон між колонками на великих екранах */
+@media (min-width: 992px) {
+    .border-end-lg {
+        border-right: 1px solid #f0f0f0;
+    }
 }
-.no-vacancies-info {
-    background-color: #f8f9fa;
-    border-radius: var(--radius-card);
-    border: 2px dashed #ddd;
-    box-shadow: none;
-    padding: 3rem 2rem;
+
+/* Адаптивність для мобільних */
+@media (max-width: 991.98px) {
+    .vacancy-action {
+        border-left: none;
+        border-top: 1px solid #f0f0f0;
+        padding: 1.5rem;
+    }
+    
+    .vacancy-body {
+        padding: 1.5rem;
+    }
+    
+    .border-end-lg {
+        border-right: none;
+    }
 }
 
 /* --- Контакти --- */
@@ -751,7 +833,7 @@ h1, h2, h3, h4, h5, h6 {
 .contact-form .form-control:focus {
     background-color: white;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
+    box-shadow: none; /* Прибрано світіння */
     color: var(--dark);
 }
 .contact-form select.form-control {
@@ -759,142 +841,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* --- Футер --- */
-.footer {
-    background-color: #1a1a1a;
-    color: #aaa;
-    padding: 4rem 0 2rem;
-    font-size: 0.9rem;
-}
-.footer h5 {
-    color: white;
-    margin-bottom: 1.2rem;
-    font-weight: 700;
-    font-size: 1.1rem;
-}
-.footer a {
-    color: #aaa;
-    text-decoration: none;
-}
-.footer-links li a {
-    display: block;
-    position: relative;
-    padding-left: 0;
-    transition: var(--transition);
-    margin-bottom: 0.4rem;
-}
-.footer-links li a:hover {
-    color: var(--accent);
-    padding-left: 5px;
-}
-.social-links {
-    display: flex;
-    gap: 8px;
-}
-.social-links a {
-    width: 38px;
-    height: 38px;
-    background-color: rgba(255,255,255,0.05);
-    border-radius: 50%;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.social-links a:hover {
-    background-color: var(--primary);
-    transform: translateY(-2px);
-}
-.social-links svg {
-    width: 18px;
-    height: 18px;
-}
-.copyright {
-    margin-top: 3rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    padding-top: 1.5rem;
-    font-size: 0.85rem;
-}
-
-/* --- Модальні вікна --- */
-.modal-content {
-    background-color: white;
-    color: var(--dark);
-    border-radius: 24px;
-    border: none;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-    overflow: hidden;
-}
-.modal-header {
-    background-color: var(--primary-dark);
-    color: white;
-    border-bottom: none;
-    padding: 1.2rem 1.8rem;
-    display: flex;
-    align-items: center;
-}
-.modal-title {
-    font-weight: 800;
-    font-size: 1.3rem;
-}
-.modal-body {
-    padding: 2rem;
-}
-.modal-footer {
-    border-top: 1px solid #f0f0f0;
-    padding: 1.2rem 2rem;
-    background-color: #f9f9f9;
-    justify-content: center;
-    gap: 1rem;
-}
-.modal .form-control {
-    background-color: #fff;
-    border: 2px solid #e0e0e0;
-    color: var(--dark);
-    padding: 0.8rem 1rem;
-    border-radius: var(--radius-input);
-}
-.modal .form-control:focus {
-    background-color: white;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
-}
-.modal .form-label {
-    color: var(--dark);
-    font-weight: 700;
-    font-size: 0.9rem;
-    margin-bottom: 0.4rem;
-}
-.btn-close-white {
-    filter: invert(1) grayscale(100%) brightness(200%);
-    opacity: 0.8;
-}
-.btn-close-white:hover {
-    opacity: 1;
-}
-
-/* --- Іконки --- */
-.icon {
-    width: 24px;
-    height: 24px;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-/* --- Анімації --- */
-.animate-fade-in {
-    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-/* --- Новий Футер (Стиль як на картинці) --- */
 .footer {
     background-color: #1b1f1c; /* Дуже темний зелений, майже чорний */
     color: #b0b0b0;
@@ -949,10 +895,94 @@ h1, h2, h3, h4, h5, h6 {
 .copyright-links a {
     color: #888;
     font-size: 0.9rem;
+    text-decoration: none; /* Заборона підкреслення */
 }
 .copyright-links a:hover {
     color: var(--primary);
-    text-decoration: underline;
+    text-decoration: none;
+}
+
+/* --- Модальні вікна --- */
+.modal-content {
+    background-color: white;
+    color: var(--dark);
+    border-radius: 24px;
+    border: none;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+.modal-header {
+    background-color: var(--primary-dark);
+    color: white;
+    border-bottom: none;
+    padding: 1.2rem 1.8rem;
+    display: flex;
+    align-items: center;
+}
+.modal-title {
+    font-weight: 800;
+    font-size: 1.3rem;
+}
+.modal-body {
+    padding: 2rem;
+}
+.modal-footer {
+    border-top: 1px solid #f0f0f0;
+    padding: 1.2rem 2rem;
+    background-color: #f9f9f9;
+    justify-content: center;
+    gap: 1rem;
+}
+.modal .form-control {
+    background-color: #fff;
+    border: 2px solid #e0e0e0;
+    color: var(--dark);
+    padding: 0.8rem 1rem;
+    border-radius: var(--radius-input);
+}
+.modal .form-control:focus {
+    background-color: white;
+    border-color: var(--primary);
+    box-shadow: none; /* Прибрано світіння */
+}
+.modal .form-label {
+    color: var(--dark);
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+}
+.btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+    opacity: 0.8;
+}
+.btn-close-white:hover {
+    opacity: 1;
+}
+.btn-close:focus {
+    box-shadow: none; /* Прибирає фокус з кнопки закриття */
+}
+
+/* --- Іконки --- */
+.icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* --- Анімації --- */
+.animate-fade-in {
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* --- Кастомний Вибір Авто (Заміна стандартного datalist) --- */
@@ -1011,7 +1041,13 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 -4px 20px rgba(0,0,0,0.3); /* Тінь вгору */
     display: none;    /* JS керує відображенням */
 }
-.cookie-banner a { color: var(--primary-light); text-decoration: underline; }
+.cookie-banner a { 
+    color: var(--primary-light); 
+    text-decoration: underline; 
+}
+.cookie-banner a:hover {
+    text-decoration: none;
+}
 .cookie-banner .btn-ok { 
     background: var(--primary); 
     color: white; 
@@ -1039,6 +1075,116 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
 }
 
+/* =========================================
+   CUSTOM FAQ (ACCORDION)
+   ========================================= */
+
+.custom-faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Відступ між питаннями */
+}
+
+.faq-item {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 8px 25px rgba(46, 125, 50, 0.1);
+    transform: translateY(-2px);
+    border-color: rgba(46, 125, 50, 0.2);
+}
+
+.faq-item.active {
+    border-color: var(--primary, #2e7d32); /* Зелена рамка активного */
+    box-shadow: 0 10px 30px rgba(46, 125, 50, 0.15);
+}
+
+/* Кнопка питання */
+.faq-trigger {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    outline: none !important; /* Прибрано аутлайн */
+}
+
+.faq-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary-dark, #1b5e20);
+    transition: color 0.3s ease;
+}
+
+.faq-item.active .faq-title {
+    color: var(--primary, #2e7d32);
+}
+
+/* Іконка стрілочки */
+.faq-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.05);
+    border-radius: 50%;
+    color: var(--gray, #86868b);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.faq-item.active .faq-icon {
+    background-color: var(--primary, #2e7d32);
+    color: white;
+    transform: rotate(180deg);
+}
+
+/* Прихований контент */
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1); /* Дуже плавна анімація */
+    opacity: 0;
+}
+
+.faq-item.active .faq-content {
+    max-height: 500px; /* Достатньо велике значення */
+    opacity: 1;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.faq-body {
+    padding: 0 25px 25px 25px;
+    color: #555;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+        /* Прибираємо синє світіння (focus) у полів вводу */
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary) !important; /* Зелена рамка */
+            box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.25) !important; /* Зелене світіння */
+            outline: none !important;
+        }
+        
+        /* Стиль для посилань у контактах: без підкреслення і білий колір */
+        .contact-link-clean {
+            text-decoration: none !important;
+            color: rgba(255, 255, 255, 0.8) !important;
+            transition: 0.3s;
+        }
+        .contact-link-clean:hover {
+            color: #ff9800 !important; /* Помаранчевий при наведенні */
+        }
 /* Скролбар для списку */
 .custom-options-list::-webkit-scrollbar {
     width: 8px;
@@ -1050,6 +1196,7 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--primary-light);
     border-radius: 4px;
 }
+
 /* =========================================
    АДАПТИВНІСТЬ (RESPONSIVE DESIGN)
    ========================================= */
@@ -1062,24 +1209,19 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .section-padding {
-        /* Зменшено відступи, щоб не було великих дір */
         padding: 40px 0; 
     }
 
-    /* Виправлення відгуків на планшетах (розтягуємо на всю ширину) */
     .reviews-section .col-md-6 {
         width: 100% !important;
         flex: 0 0 100% !important;
         max-width: 100% !important;
     }
 
-    /* ВИПРАВЛЕННЯ: Зелена картка вакансій 
-       Примусово ставимо все в колонку і по центру 
-    */
     .vacancy-apply-card {
         flex-direction: column !important;
         text-align: center !important;
-        align-items: center !important; /* Центрування по горизонталі */
+        align-items: center !important; 
         justify-content: center !important;
         padding: 2rem 1rem !important;
     }
@@ -1138,96 +1280,87 @@ h1, h2, h3, h4, h5, h6 {
         text-align: center;
     }
 }
-      /* --- ДОДАТКОВІ СТИЛІ (Кнопка + Cookies) --- */
 
-        /* 1. Стилі для плаваючої кнопки дзвінка (ЗЛІВА) */
-     .floating-call-btn {
-            position: fixed;
-            left: 20px; /* Розміщення зліва */
-            bottom: 100px; /* Трохи вище банера cookies */
-            width: 60px;
-            height: 60px;
-            background-color: #28a745; /* Основний зелений колір */
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.5);
-            z-index: 9998;
-            transition: all 0.3s ease;
-            animation: pulse-green 2s infinite; /* Анімація */
+/* --- ДОДАТКОВІ СТИЛІ (Кнопка + Cookies) --- */
+.floating-call-btn {
+    position: fixed;
+    left: 20px;
+    bottom: 100px;
+    width: 60px;
+    height: 60px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.5);
+    z-index: 9998;
+    transition: all 0.3s ease;
+    animation: pulse-green 2s infinite;
+}
 
-        }
+.floating-call-btn:hover {
+    background-color: #1e7e34;
+    transform: scale(1.1);
+    color: white;
+}
 
-
-
-        .floating-call-btn:hover {
-            background-color: #1e7e34; /* Темніший зелений при наведенні */
-            transform: scale(1.1);
-            color: white;
-
-        }
-
-
-
-     .floating-call-btn svg {
-    width: 58px;
-    height: 58px;
- 
-
+.floating-call-btn svg {
+    width: 30px; /* Зменшено, бо 58px завелике для кнопки 60px */
+    height: 30px;
 }
 
 .floating-call-btn:hover svg {
     transform: scale(1.15);
 }
-        /* Анімація пульсації */
-        @keyframes pulse-green {
-            0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(40, 167, 69, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
-        }
 
-        /* 2. Стилі для банера Cookies (ЗНИЗУ) */
-        .cookie-alert {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #155724; /* Темно-зелений фон */
-            color: #fff;
-            padding: 15px 0;
-            z-index: 9999;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
-            display: none; /* Приховано за замовчуванням, JS покаже якщо треба */
-            border-top: 1px solid #28a745;
-        }
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(40, 167, 69, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
+}
 
-        .cookie-alert a {
-            color: #85e0a3; /* Світло-зелене посилання */
-            text-decoration: underline;
-        }
+.cookie-alert {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #155724;
+    color: #fff;
+    padding: 15px 0;
+    z-index: 9999;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+    display: none; 
+    border-top: 1px solid #28a745;
+}
 
-        .cookie-alert a:hover {
-            color: #fff;
-            text-decoration: none;
-        }
+.cookie-alert a {
+    color: #85e0a3;
+    text-decoration: underline;
+}
 
-        .btn-cookie-accept {
-            background-color: #28a745; /* Яскраво-зелена кнопка */
-            border: none;
-            color: white;
-            padding: 8px 25px;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s;
-            cursor: pointer;
-        }
+.cookie-alert a:hover {
+    color: #fff;
+    text-decoration: none;
+}
 
-        .btn-cookie-accept:hover {
-            background-color: #1e7e34;
-        }
+.btn-cookie-accept {
+    background-color: #28a745;
+    border: none;
+    color: white;
+    padding: 8px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+.btn-cookie-accept:hover {
+    background-color: #1e7e34;
+}
+
 /* --- Мобільні телефони (ландшафт) та планшети (до 768px) --- */
 @media (max-width: 767.98px) {
     .container {
@@ -1237,7 +1370,6 @@ h1, h2, h3, h4, h5, h6 {
 
     .section-title {
         font-size: 1.8rem;
-        /* Компактний відступ для заголовка */
         margin-bottom: 2.5rem !important; 
         padding-bottom: 10px;
     }
@@ -1257,7 +1389,6 @@ h1, h2, h3, h4, h5, h6 {
         margin-top: 2rem;
     }
 
-    /* Вакансії */
     .vacancy-item > .row {
         flex-direction: column;
     }
@@ -1268,12 +1399,10 @@ h1, h2, h3, h4, h5, h6 {
         width: 100%;
     }
     
-    /* Менші відступи між вакансіями */
     .vacancy-divider {
         margin: 1.5rem 0;
     }
     
-    /* Додаткове дублювання центрування для надійності */
     .vacancy-apply-card {
         flex-direction: column !important;
         align-items: center !important;
@@ -1291,7 +1420,6 @@ h1, h2, h3, h4, h5, h6 {
         padding-top: 60px;
     }
 
-    /* Компактні відступи для мобільних */
     .section-padding {
         padding: 30px 0;
     }
@@ -1302,7 +1430,6 @@ h1, h2, h3, h4, h5, h6 {
 
     .hero-section {
         min-height: auto;
-        /* Значно зменшені відступи на головному екрані */
         padding: 90px 0 50px 0;
         margin-top: -60px;
         text-align: center;
@@ -1333,7 +1460,6 @@ h1, h2, h3, h4, h5, h6 {
         padding: 1.5rem 1rem !important; 
     }
 
-    /* Виправлення номеру телефону (без переносу) */
     .vacancy-contact-info small {
         font-size: 0.75rem !important; 
         white-space: nowrap; 
